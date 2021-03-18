@@ -1,21 +1,24 @@
-import { component, useState } from "react";
+import { component, useState, useEffect } from "react";
 
 export default function Search({ getPokemon }) {
   const [inputValue, setInputValue] = useState("");
+  useEffect(() => {
+    setInputValue(inputValue);
+  });
   return (
     <div className="searc">
       <input
         name="input"
         type="text"
         className="input"
-        onChange={(e) => {
-          setInputValue(e.target.value);
+        onChange={async (e) => {
+          await setInputValue(e.target.value);
         }}
       ></input>
       <button
         className="search-button"
-        onClick={() => {
-          getPokemon(inputValue);
+        onClick={async () => {
+          await getPokemon(inputValue);
         }}
       >
         search pokemon
