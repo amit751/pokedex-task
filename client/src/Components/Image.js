@@ -1,6 +1,10 @@
-import { useState } from "react";
-export default function View({ sprites }) {
+import { useEffect, useState } from "react";
+export default function Image({ sprites }) {
   const [image, setImage] = useState(sprites.front);
+  useEffect(() => {
+    setImage(sprites.front);
+  }, [sprites]);
+
   return (
     <div>
       <img
@@ -13,3 +17,14 @@ export default function View({ sprites }) {
     </div>
   );
 }
+// function Avatar(props) {
+//     const [user, setUser] = React.useState({...props.user});
+
+//     React.useEffect(() => {
+//         setUser(props.user);
+//     }, [props.user])
+
+//     return user.avatar ?
+//            (<img src={user.avatar}/>)
+//           : (<p>Loading...</p>);
+//   }

@@ -1,6 +1,5 @@
 import { component } from "react";
 export default function TypeList({ pokemons, getPokemon }) {
-  console.log("0000000", pokemons);
   return (
     <ul>
       {pokemons.map((pokemon, index) => {

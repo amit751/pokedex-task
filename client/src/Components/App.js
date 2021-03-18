@@ -35,7 +35,6 @@ function App() {
     );
     setDisplayPokemon(data);
     setTypes([]);
-    console.log(data);
   };
   const callTypes = async (type) => {
     const getTypes = await axios.get(`http://localhost:3001/api/type/${type}`);

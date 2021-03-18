@@ -8,9 +8,10 @@ export default function View({ pokemon, callTypes }) {
         <li>Weight: {pokemon.weight}</li>
         <li>
           Types:{" "}
-          {pokemon.types.map((element) => {
+          {pokemon.types.map((element, i) => {
             return (
               <span
+                key={i}
                 onClick={() => {
                   callTypes(element.type.name);
                 }}
