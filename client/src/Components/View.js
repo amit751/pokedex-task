@@ -1,4 +1,5 @@
 import Image from "./Image";
+import "../Style/View.css";
 export default function View({
   pokemon,
   callTypes,
@@ -8,7 +9,7 @@ export default function View({
 }) {
   if (pokemon.height !== "Oops!") {
     return (
-      <div>
+      <div className="display">
         <ul className="data-list">
           <li>Name: {pokemon.name}</li>
           <li>Hieght: {pokemon.height}</li>

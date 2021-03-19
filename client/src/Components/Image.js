@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../Style/Image.css";
 export default function Image({
   sprites,
   catching,
@@ -17,7 +18,7 @@ export default function Image({
 
   if (pokemon.height !== "Oops!" && pokemon.name !== "") {
     return (
-      <div>
+      <div className="display-image-container">
         <img
           className="display-image"
           onMouseOver={() => setImage(sprites.back)}

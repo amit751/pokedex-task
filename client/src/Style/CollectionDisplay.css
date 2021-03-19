@@ -1,0 +1,10 @@
+.collection {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 1rem;
+}
+.collection-container {
+  margin: auto;
+  margin-top: 2rem;
+}

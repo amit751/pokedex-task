@@ -1,0 +1,28 @@
+.release-button {
+  background-color: hsl(0, 78%, 49%);
+
+  display: inline-block;
+  border-radius: 2rem;
+  color: #f8fcf2;
+  border: none;
+  font-size: 0.9rem;
+  width: 5rem;
+
+  padding: 8px 11px;
+}
+.release-button:hover {
+  background-color: #130f11;
+  color: rgb(240, 242, 247);
+  border: none;
+  border-radius: 2rem;
+}
+.release-button:active {
+  position: relative;
+  top: 1px;
+  border: none;
+  border-radius: 2rem;
+}
+.display-image-container {
+  display: flex;
+  flex-direction: column;
+}

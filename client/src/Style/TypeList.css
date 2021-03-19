@@ -1,0 +1,8 @@
+.type-list {
+  width: 5%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.type-list li:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.search * {
+  margin: 0.5rem;
+  font-size: medium;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.input {
+  height: 2rem;
+  border-radius: 4%;
+}

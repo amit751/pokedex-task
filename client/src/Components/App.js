@@ -1,4 +1,4 @@
-import "../App.css";
+import "../Style/App.css";
 import Search from "./Search.js";
 import TypeList from "./TypeList.js";
 import Header from "./Header.js";
@@ -110,6 +110,7 @@ function App() {
       <Header />
       <Search getPokemon={getPokemon} />
       <View
+        className="view"
         setTypes={setTypes}
         pokemon={displayPokemon}
         callTypes={callTypes}
@@ -117,13 +118,16 @@ function App() {
         release={release}
         isCatched={isCatched}
       />
+      <div className="main">
+        <CollectionDisplay
+          className="collection"
+          collection={collection}
+          pokemon={displayPokemon}
+          catching={catching}
+          release={releaseFromCollection}
+        />
+      </div>
       <TypeList getPokemon={getPokemon} pokemons={types} />
-      <CollectionDisplay
-        collection={collection}
-        pokemon={displayPokemon}
-        catching={catching}
-        release={releaseFromCollection}
-      />
     </div>
   );
 }

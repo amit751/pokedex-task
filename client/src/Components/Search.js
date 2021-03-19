@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import "../Style/Search.css";
 export default function Search({ getPokemon }) {
   const [inputValue, setInputValue] = useState("");
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Search({ getPokemon }) {
           await getPokemon(inputValue);
         }}
       >
-        search pokemon
+        <i className="material-icons">search</i>
       </button>
     </div>
   );

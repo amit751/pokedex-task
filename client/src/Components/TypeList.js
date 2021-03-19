@@ -1,7 +1,8 @@
+import "../Style/TypeList.css";
 export default function TypeList({ pokemons, getPokemon }) {
   try {
     return (
-      <ul className="collection-list">
+      <ul className="type-list">
         {pokemons.map((pokemon, index) => {
           return (
             <li
