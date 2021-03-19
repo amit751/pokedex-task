@@ -22,5 +22,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "https://localhost:3001"
+  "proxy": "https://pokedex-amit-maor.herokuapp.com"
 }
