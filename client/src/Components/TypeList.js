@@ -1,8 +1,7 @@
-import { component } from "react";
 export default function TypeList({ pokemons, getPokemon }) {
   try {
     return (
-      <ul>
+      <ul className="collection-list">
         {pokemons.map((pokemon, index) => {
           return (
             <li

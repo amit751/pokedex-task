@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import Image from "./Image.js";
 export default function CollectionDisplay({ collection, catching, release }) {
   return (
     <div className="collection">
@@ -7,7 +5,11 @@ export default function CollectionDisplay({ collection, catching, release }) {
         return (
           <div key={"#" + i} className="pokemon-in-collection">
             <p>{pokemon.name}</p>
-            <img className="collection-image" src={pokemon.sprites.front}></img>
+            <img
+              alt="Pokemon"
+              className="collection-image"
+              src={pokemon.sprites.front}
+            ></img>
           </div>
         );
       })}

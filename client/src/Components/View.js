@@ -9,7 +9,7 @@ export default function View({
   if (pokemon.height !== "Oops!") {
     return (
       <div>
-        <ul>
+        <ul className="data-list">
           <li>Name: {pokemon.name}</li>
           <li>Hieght: {pokemon.height}</li>
           <li>Weight: {pokemon.weight}</li>
@@ -41,7 +41,7 @@ export default function View({
   } else {
     return (
       <div>
-        <ul>
+        <ul className="data-list">
           <li>Name: {pokemon.name}</li>
           <li>Hieght: {pokemon.height}</li>
           <li>Weight: {pokemon.weight}</li>

@@ -23,9 +23,11 @@ export default function Image({
           onMouseOver={() => setImage(sprites.back)}
           onMouseLeave={() => setImage(sprites.front)}
           src={image}
+          alt="Pokemon"
         ></img>
 
         <button
+          className="release-button"
           onClick={() => {
             if (isCatched) {
               release(pokemon);

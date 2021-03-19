@@ -52,7 +52,7 @@ const getCollection = async () => {
     res(data);
   });
 };
-const test = function App() {
+function App() {
   const [displayPokemon, setDisplayPokemon] = useState(mock);
   const [isCatched, setIsCatched] = useState(false);
   const [types, setTypes] = useState([]);
@@ -130,6 +130,6 @@ const test = function App() {
       />
     </div>
   );
-};
+}
 
 export default App;
