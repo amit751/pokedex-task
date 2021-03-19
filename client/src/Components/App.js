@@ -6,6 +6,7 @@ import Image from "./Image.js";
 import View from "./View.js";
 import axios from "axios";
 import { useState } from "react";
+
 const mock = {
   name: "",
   height: "",
@@ -28,24 +29,52 @@ const mock = {
 };
 function App() {
   const [displayPokemon, setDisplayPokemon] = useState(mock);
+  const [isCatched, setIsCatched] = useState(false);
   const [types, setTypes] = useState([]);
   const getPokemon = async (name) => {
     const { data } = await axios.get(
       `http://localhost:3001/api/pokemon/${name}`
     );
     setDisplayPokemon(data);
+    setIsCatched(await collectionCheck(data));
     setTypes([]);
   };
   const callTypes = async (type) => {
     const getTypes = await axios.get(`http://localhost:3001/api/type/${type}`);
     setTypes(getTypes.data);
   };
+  const catching = async (pokemon) => {
+    const { data } = await axios.post(
+      "http://localhost:3001/api/collection/catch",
+      pokemon
+    );
+    setIsCatched(await collectionCheck(pokemon));
+  };
+  const release = async (pokemon) => {
+    const { data } = await axios.delete(
+      `http://localhost:3001/api/collection/release/${pokemon.name}`
+    );
+    setIsCatched(await collectionCheck(pokemon));
+  };
+  const collectionCheck = async (pokemon) => {
+    const { data } = await axios.get("http://localhost:3001/api/collection");
+    console.log(data);
+    return data.findIndex((element) => element.name === pokemon.name) === -1
+      ? false
+      : true;
+  };
 
   return (
     <div className="App">
       <Header />
       <Search getPokemon={getPokemon} />
-      <View pokemon={displayPokemon} callTypes={callTypes} />
+      <View
+        pokemon={displayPokemon}
+        callTypes={callTypes}
+        catching={catching}
+        release={release}
+        isCatched={isCatched}
+      />
       <TypeList getPokemon={getPokemon} pokemons={types} />
     </div>
   );

@@ -1,5 +1,11 @@
 import Image from "./Image";
-export default function View({ pokemon, callTypes }) {
+export default function View({
+  pokemon,
+  callTypes,
+  catching,
+  release,
+  isCatched,
+}) {
   return (
     <div>
       <ul>
@@ -22,7 +28,13 @@ export default function View({ pokemon, callTypes }) {
           })}
         </li>
       </ul>
-      <Image sprites={pokemon.sprites} />
+      <Image
+        sprites={pokemon.sprites}
+        catching={catching}
+        release={release}
+        pokemon={pokemon}
+        isCatched={isCatched}
+      />
     </div>
   );
 }

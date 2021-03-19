@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
-export default function Image({ sprites }) {
+export default function Image({
+  sprites,
+  catching,
+  release,
+  pokemon,
+  isCatched,
+}) {
+  const [text, setText] = useState("Catch");
+  useEffect(() => {
+    setText(isCatched ? "Release" : "Catch");
+  }, [isCatched]);
   const [image, setImage] = useState(sprites.front);
   useEffect(() => {
     setImage(sprites.front);
@@ -13,18 +23,18 @@ export default function Image({ sprites }) {
         onMouseLeave={() => setImage(sprites.front)}
         src={image}
       ></img>
-      <button>Catch</button>
+
+      <button
+        onClick={() => {
+          if (isCatched) {
+            release(pokemon);
+          } else {
+            catching(pokemon);
+          }
+        }}
+      >
+        {text}
+      </button>
     </div>
   );
 }
-// function Avatar(props) {
-//     const [user, setUser] = React.useState({...props.user});
-
-//     React.useEffect(() => {
-//         setUser(props.user);
-//     }, [props.user])
-
-//     return user.avatar ?
-//            (<img src={user.avatar}/>)
-//           : (<p>Loading...</p>);
-//   }

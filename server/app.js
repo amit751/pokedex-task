@@ -54,7 +54,7 @@ app.post("/api/collection/catch", (req, res) => {
   const pokemon = req.body;
   collection.push(pokemon);
   console.log(collection);
-  res.send("Added to collection");
+  res.send(collection);
 });
 
 app.delete("/api/collection/release/:name", (req, res) => {
@@ -62,7 +62,7 @@ app.delete("/api/collection/release/:name", (req, res) => {
   collection = collection.filter((pokemon) => {
     return pokemon.name !== pokemonName;
   });
-  res.send("Pokemon deleted!");
+  res.send(collection);
 });
 
 module.exports = app;
