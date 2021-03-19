@@ -7,6 +7,11 @@ let collection = [];
 app.use(cors());
 app.use(express.json());
 app.use(express.static("../client/build"));
+
+app.get("/", (req, res) => {
+  res.sendFile("../build/index.html");
+});
+
 app.get("/api/pokemon/:name", (req, res) => {
   const name = req.params.name;
   axios
