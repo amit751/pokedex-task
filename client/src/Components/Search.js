@@ -6,7 +6,7 @@ export default function Search({ getPokemon }) {
     setInputValue(inputValue);
   });
   return (
-    <div className="searc">
+    <div className="search">
       <input
         name="input"
         type="text"

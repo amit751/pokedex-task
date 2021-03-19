@@ -15,26 +15,40 @@ export default function Image({
     setImage(sprites.front);
   }, [sprites]);
 
-  return (
-    <div>
-      <img
-        className="display-image"
-        onMouseOver={() => setImage(sprites.back)}
-        onMouseLeave={() => setImage(sprites.front)}
-        src={image}
-      ></img>
+  if (pokemon.height !== "Oops!") {
+    return (
+      <div>
+        <img
+          className="display-image"
+          onMouseOver={() => setImage(sprites.back)}
+          onMouseLeave={() => setImage(sprites.front)}
+          src={image}
+        ></img>
 
-      <button
-        onClick={() => {
-          if (isCatched) {
-            release(pokemon);
-          } else {
-            catching(pokemon);
-          }
-        }}
-      >
-        {text}
-      </button>
-    </div>
-  );
+        <button
+          onClick={() => {
+            if (isCatched) {
+              release(pokemon);
+            } else {
+              catching(pokemon);
+            }
+          }}
+        >
+          {text}
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <img
+          className="display-image"
+          onMouseOver={() => setImage(sprites.back)}
+          onMouseLeave={() => setImage(sprites.front)}
+          src={image}
+        ></img>
+        <p>{pokemon.name} is not a pokemon!!!!!!!</p>
+      </div>
+    );
+  }
 }

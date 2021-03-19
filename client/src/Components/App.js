@@ -6,7 +6,25 @@ import Image from "./Image.js";
 import View from "./View.js";
 import axios from "axios";
 import { useState } from "react";
-
+const notFoundMock = {
+  height: "Oops!",
+  weight: "Oops!",
+  types: [
+    {
+      slot: 1,
+      type: {
+        name: "I don't exist!",
+        url: "",
+      },
+    },
+  ],
+  sprites: {
+    front:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPJdVC_7oEf_0bDDWVmm11uP3TKMehpWFBzaaQAs1QOPFk_Owq-nO8nxNnLqGz02t510&usqp=CAU",
+    back:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6DMuTKU_iYE1NbVoXdwhf8hXWvZTHt4691kQ5uGLYFCjFH9gW1QL7UaGSPLhTWzaIC4&usqp=CAU",
+  },
+};
 const mock = {
   name: "",
   height: "",
@@ -16,7 +34,7 @@ const mock = {
       slot: 1,
       type: {
         name: "",
-        url: "https://pokeapi.co/api/v2/type/1/",
+        url: "",
       },
     },
   ],
@@ -33,12 +51,17 @@ function App() {
   const [types, setTypes] = useState([]);
 
   const getPokemon = async (name) => {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/pokemon/${name}`
-    );
-    setDisplayPokemon(data);
-    setIsCatched(await collectionCheck(data));
-    setTypes([]);
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/api/pokemon/${name}`
+      );
+      setDisplayPokemon(data);
+      setIsCatched(await collectionCheck(data));
+      setTypes([]);
+    } catch {
+      notFoundMock.name = name;
+      setDisplayPokemon(notFoundMock);
+    }
   };
 
   const callTypes = async (type) => {
@@ -63,7 +86,6 @@ function App() {
 
   const collectionCheck = async (pokemon) => {
     const { data } = await axios.get("http://localhost:3001/api/collection");
-    console.log(data);
     return data.findIndex((element) => element.name === pokemon.name) === -1
       ? false
       : true;
