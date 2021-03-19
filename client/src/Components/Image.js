@@ -15,7 +15,7 @@ export default function Image({
     setImage(sprites.front);
   }, [sprites]);
 
-  if (pokemon.height !== "Oops!" && pokemon.name !== "initial") {
+  if (pokemon.height !== "Oops!" && pokemon.name !== "") {
     return (
       <div>
         <img
@@ -40,7 +40,7 @@ export default function Image({
         </button>
       </div>
     );
-  } else if (pokemon.name === "initial") {
+  } else if (pokemon.name === "") {
     return (
       <div>
         <img
