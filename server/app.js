@@ -23,12 +23,17 @@ app.get("/api/pokemon/:name", (req, res) => {
           back: sprites["back_default"],
         },
       };
-      console.log(pokemon);
       return res.json(pokemon);
     })
     .catch((err) => {
-      return res.send(err);
-      console.log(err);
+      if (err.response.status === 404) {
+        return res.status(404).json({ name: name, message: "No such pokemon" });
+      } else {
+        return res.json({
+          err: err,
+          massage: "Failed to fetch pokemon from poke.api",
+        });
+      }
     });
 });
 
@@ -37,12 +42,13 @@ app.get("/api/type/:name", (req, res) => {
   axios
     .get(POKE_URL + `type/${name}`)
     .then(({ data }) => {
-      console.log(data);
       return res.json(data.pokemon);
     })
     .catch((err) => {
-      console.log(err);
-      return res.send(err);
+      return res.json({
+        err: err,
+        massage: "Could not get type/name from poke.api",
+      });
     });
 });
 
@@ -53,7 +59,6 @@ app.get("/api/collection", (req, res) => {
 app.post("/api/collection/catch", (req, res) => {
   const pokemon = req.body;
   collection.push(pokemon);
-  console.log(collection);
   res.send(collection);
 });
 
