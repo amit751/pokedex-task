@@ -6,10 +6,10 @@ const POKE_URL = "https://pokeapi.co/api/v2/";
 let collection = [];
 app.use(cors());
 app.use(express.json());
-app.use(express.static("../client/build"));
+app.use(express.static("./build"));
 
 app.get("/", (req, res) => {
-  res.sendFile("../build/index.html");
+  res.sendFile("./index.html");
 });
 
 app.get("/api/pokemon/:name", (req, res) => {

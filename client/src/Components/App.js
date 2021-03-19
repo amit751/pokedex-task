@@ -57,7 +57,7 @@ function App() {
   const getPokemon = async (name) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/pokemon/${name}`
+        `https://pokedex-amit-maor.herokuapp.com/api/pokemon/${name}`
       );
       setDisplayPokemon(data);
       setIsCatched(await collectionCheck(data));
@@ -72,7 +72,7 @@ function App() {
   const callTypes = async (type) => {
     try {
       const getTypes = await axios.get(
-        `http://localhost:3001/api/type/${type}`
+        `https://pokedex-amit-maor.herokuapp.com/api/type/${type}`
       );
       setTypes(getTypes.data);
       console.log(getTypes.data);
@@ -82,23 +82,28 @@ function App() {
   };
 
   const catching = async (pokemon) => {
-    await axios.post("http://localhost:3001/api/collection/catch", pokemon);
+    await axios.post(
+      "https://pokedex-amit-maor.herokuapp.com/api/collection/catch",
+      pokemon
+    );
     setIsCatched(await collectionCheck(pokemon));
   };
 
   const release = async (pokemon) => {
     await axios.delete(
-      `http://localhost:3001/api/collection/release/${pokemon.name}`
+      `https://pokedex-amit-maor.herokuapp.com/api/collection/release/${pokemon.name}`
     );
     setIsCatched(await collectionCheck(pokemon));
   };
   const releaseFromCollection = async (pokemon) => {
     await axios.delete(
-      `http://localhost:3001/api/collection/release/${pokemon.name}`
+      `https://pokedex-amit-maor.herokuapp.com/api/collection/release/${pokemon.name}`
     );
   };
   const collectionCheck = async (pokemon) => {
-    const { data } = await axios.get("http://localhost:3001/api/collection");
+    const { data } = await axios.get(
+      "https://pokedex-amit-maor.herokuapp.com/api/collection"
+    );
     setCollection(data);
     return data.findIndex((element) => element.name === pokemon.name) === -1
       ? false
