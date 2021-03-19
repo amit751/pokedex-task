@@ -53,6 +53,7 @@ export default function View({
           </li>
         </ul>
         <Image
+          key={100}
           sprites={pokemon.sprites}
           catching={catching}
           release={release}

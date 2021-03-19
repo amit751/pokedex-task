@@ -15,7 +15,7 @@ export default function Image({
     setImage(sprites.front);
   }, [sprites]);
 
-  if (pokemon.height !== "Oops!") {
+  if (pokemon.height !== "Oops!" && pokemon.name !== "initial") {
     return (
       <div>
         <img
@@ -36,6 +36,17 @@ export default function Image({
         >
           {text}
         </button>
+      </div>
+    );
+  } else if (pokemon.name === "initial") {
+    return (
+      <div>
+        <img
+          className="display-image"
+          onMouseOver={() => setImage(sprites.back)}
+          onMouseLeave={() => setImage(sprites.front)}
+          src={image}
+        ></img>
       </div>
     );
   } else {
