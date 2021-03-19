@@ -6,7 +6,7 @@ const POKE_URL = "https://pokeapi.co/api/v2/";
 let collection = [];
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static("../client/build"));
 app.get("/api/pokemon/:name", (req, res) => {
   const name = req.params.name;
   axios
