@@ -45,7 +45,7 @@ app.get("/api/type/:name", (req, res) => {
       return res.json(data.pokemon);
     })
     .catch((err) => {
-      return res.json({
+      return res.status(400).json({
         err: err,
         massage: "Could not get type/name from poke.api",
       });
@@ -70,4 +70,8 @@ app.delete("/api/collection/release/:name", (req, res) => {
   res.send(collection);
 });
 
+app.use((error, req, res, next) => {
+  res.status(400).send("Bad request");
+  next(error);
+});
 module.exports = app;

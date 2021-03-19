@@ -65,8 +65,14 @@ function App() {
   };
 
   const callTypes = async (type) => {
-    const getTypes = await axios.get(`http://localhost:3001/api/type/${type}`);
-    setTypes(getTypes.data);
+    try {
+      const getTypes = await axios.get(
+        `http://localhost:3001/api/type/${type}`
+      );
+      setTypes(getTypes.data);
+    } catch {
+      setTypes(["We are down sorry!, try again later"]);
+    }
   };
 
   const catching = async (pokemon) => {

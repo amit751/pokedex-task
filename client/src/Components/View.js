@@ -6,35 +6,60 @@ export default function View({
   release,
   isCatched,
 }) {
-  return (
-    <div>
-      <ul>
-        <li>Name: {pokemon.name}</li>
-        <li>Hieght: {pokemon.height}</li>
-        <li>Weight: {pokemon.weight}</li>
-        <li>
-          Types:{" "}
-          {pokemon.types.map((element, i) => {
-            return (
-              <span
-                key={i}
-                onClick={() => {
-                  callTypes(element.type.name);
-                }}
-              >
-                {element.type.name}{" "}
-              </span>
-            );
-          })}
-        </li>
-      </ul>
-      <Image
-        sprites={pokemon.sprites}
-        catching={catching}
-        release={release}
-        pokemon={pokemon}
-        isCatched={isCatched}
-      />
-    </div>
-  );
+  if (pokemon.height !== "Oops!") {
+    return (
+      <div>
+        <ul>
+          <li>Name: {pokemon.name}</li>
+          <li>Hieght: {pokemon.height}</li>
+          <li>Weight: {pokemon.weight}</li>
+          <li>
+            Types:{" "}
+            {pokemon.types.map((element, i) => {
+              return (
+                <span
+                  key={i}
+                  onClick={() => {
+                    callTypes(element.type.name);
+                  }}
+                >
+                  {element.type.name}{" "}
+                </span>
+              );
+            })}
+          </li>
+        </ul>
+        <Image
+          sprites={pokemon.sprites}
+          catching={catching}
+          release={release}
+          pokemon={pokemon}
+          isCatched={isCatched}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <ul>
+          <li>Name: {pokemon.name}</li>
+          <li>Hieght: {pokemon.height}</li>
+          <li>Weight: {pokemon.weight}</li>
+          <li>
+            Types:{" "}
+            {pokemon.types.map((element, i) => {
+              return <span key={i}>{element.type.name} </span>;
+            })}
+          </li>
+        </ul>
+        <Image
+          sprites={pokemon.sprites}
+          catching={catching}
+          release={release}
+          pokemon={pokemon}
+          isCatched={isCatched}
+        />
+      </div>
+    );
+  }
 }
