@@ -4,7 +4,7 @@ export default function Search({ getPokemon }) {
   const [inputValue, setInputValue] = useState("");
   useEffect(() => {
     setInputValue(inputValue);
-  });
+  }, [inputValue]);
   return (
     <div className="search">
       <input

@@ -44,6 +44,7 @@ export default function Image({
     return (
       <div>
         <img
+          alt="Pokemon"
           className="display-image"
           onMouseOver={() => setImage(sprites.back)}
           onMouseLeave={() => setImage(sprites.front)}
@@ -55,6 +56,7 @@ export default function Image({
     return (
       <div>
         <img
+          alt="Pokemon"
           className="display-image"
           onMouseOver={() => setImage(sprites.back)}
           onMouseLeave={() => setImage(sprites.front)}
