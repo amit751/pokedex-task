@@ -12,4 +12,10 @@
 }
 body {
   font-family: "Roboto Slab", serif;
+  background: rgb(251, 63, 63);
+  background: radial-gradient(
+    circle,
+    rgba(251, 63, 63, 0.5189426112241772) 0%,
+    rgba(160, 252, 70, 0.6758053563222164) 100%
+  );
 }
