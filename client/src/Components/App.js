@@ -120,6 +120,7 @@ function App() {
       />
       <div className="main">
         <CollectionDisplay
+          getPokemon={getPokemon}
           className="collection"
           collection={collection}
           pokemon={displayPokemon}
