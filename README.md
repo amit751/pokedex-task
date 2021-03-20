@@ -15,4 +15,4 @@ and under your collection a list of all the pokemons from the same type will app
 - 'Express' is used for backend.
 - Heroku is used for deploying.
 
-## <img src="https://veekun.com/dex/media/pokemon/global-link/6.png" height="50px"/> Try [Pokedex][https://pokedex-amit-maor.herokuapp.com/]
+## <img src="https://veekun.com/dex/media/pokemon/global-link/3.png" height="50px"/> Try [Pokedex](https://pokedex-amit-maor.herokuapp.com/)
