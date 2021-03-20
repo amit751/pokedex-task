@@ -8,3 +8,6 @@
   margin: auto;
   margin-top: 2rem;
 }
+.pokemon-in-collection {
+  cursor: pointer;
+}
